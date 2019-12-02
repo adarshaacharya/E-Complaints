@@ -1,0 +1,24 @@
+{
+  "name": "complaint-management-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "author": "Aadarsha",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^16.1.8",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.0",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.7.13"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
+  }
+}

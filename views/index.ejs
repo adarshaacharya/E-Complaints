@@ -1,0 +1,42 @@
+<%- include('./partials/_header.ejs') %>
+
+<%- include('./partials/_navbar.ejs') %>
+
+
+
+<section id="home-page">
+    <div class="container">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="complaint-tab" data-toggle="tab" href="#complaint" role="tab"
+                    aria-controls="complaint" aria-selected="true">Complaints</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" id="feedback-tab" data-toggle="tab" href="#feedback" role="tab"
+                    aria-controls="feedback" aria-selected="false">Feedback</a>
+            </li>
+
+        </ul>
+
+
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="complaint" role="tabpanel" aria-labelledby="complaint-tab">
+                <%- include('./complaints/add.ejs') %>
+            </div>
+
+            <div class="tab-pane fade" id="feedback" role="tabpanel" aria-labelledby="feedback-tab">
+                    <%- include('./feedback/view.ejs') %>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+<%- include('./partials/_footer.ejs') %>
