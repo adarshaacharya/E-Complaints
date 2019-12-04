@@ -23,7 +23,7 @@ const complaintSchema = new mongoose.Schema({
     default: "pending"
   },
   feedback : {
-      type : [feedbackSchema]
+    type : feedbackSchema
   }
 });
 

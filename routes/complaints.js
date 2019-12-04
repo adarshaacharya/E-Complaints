@@ -19,16 +19,12 @@ router.post('/complaints/add', async(req, res) => {
 
     try {
         const complaint = new Complaint(_.pick(req.body, ['citizenship', 'category', 'description']))
-       const newComplaint =  await complaint.save();
+        const newComplaint =  await complaint.save();
         await req.flash('success_msg', `Complaint registered succesfully. Reference ID : ${newComplaint._id}`);
 
         res.redirect('/');
     }   catch(err) {
-        res.render('index.ejs', {
-            errors : error.details[0].message,
-            citizenship,
-            description
-        })
+        console.log(err)
     }
 })
 

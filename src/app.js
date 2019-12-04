@@ -65,6 +65,9 @@ app.use(homeRouter)
 const complaintRouter = require('../routes/complaints')
 app.use(complaintRouter)
 
+const feedbackRouter = require('../routes/feedback')
+app.use(feedbackRouter)
+
 
 
 
