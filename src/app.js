@@ -9,6 +9,7 @@ const path = require('path')
 const mongoose = require('mongoose')
 const session = require("express-session")
 const flash = require("connect-flash")
+const passport = require('passport')
 
 
 const app = express()
@@ -52,8 +53,26 @@ app.use(flash());
 app.use(function(req, res, next){
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error') // login passport.js msg 
     next();
 });
+
+// passport config
+require('../middleware/passport.js')(passport)
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// setting global variable for every view as middleware function to check whether user is logged in or not
+app.use((req, res, next) => {
+    res.locals.isAuthenticated = req.isAuthenticated()
+    next();
+})
+
+
+
+
 
 
 
@@ -68,7 +87,14 @@ app.use(complaintRouter)
 const feedbackRouter = require('../routes/feedback')
 app.use(feedbackRouter)
 
+const userRouter = require('../routes/users')
+app.use(userRouter)
 
+const adminRouter = require('../routes/admin')
+app.use(adminRouter)
+
+const officerRouter = require('../routes/officer')
+app.use(officerRouter)
 
 
 
@@ -76,7 +102,7 @@ app.use(feedbackRouter)
 
 
 const hostname = 'localhost'
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 8000
 app.listen(port, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 })

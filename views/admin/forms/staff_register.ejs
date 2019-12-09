@@ -1,0 +1,44 @@
+
+
+<div class="text-center ">
+    <div class="container">
+
+        <form action="/users/register" method="POST">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Name"
+                    value="<%= typeof (name) != 'undefined' ? name : '' %>" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <input type="email" placeholder="Email" name="email"
+                    value="<%= typeof (email) != 'undefined' ? email : '' %>" class="form-control" required />
+            </div>
+
+
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Password"
+                    value="<%= typeof (password) != 'undefined' ? password : '' %>" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <input type="password" name="confirmPassword" placeholder="Re-enter Password.."
+                    value="<%= typeof (confirmPassword) != 'undefined' ? confirmPassword : '' %>" class="form-control"
+                    required />
+            </div>
+
+         <input type="text" name="role" value="staff" hidden>
+
+            <button class="btn btn-success btn-block" type="submit">Register</button>
+
+        </form>
+     
+
+
+    </div>
+
+</div>
+
+
+
+
+

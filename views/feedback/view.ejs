@@ -3,9 +3,9 @@
     <div class="row">
         <div class="col-md-6">
             <h5 class="text-dark mb-4">Type or Paste Reference ID into field to get feedback : </h5>
-            <form action="#" method="POST">
+            <form action="/feedback/view" method="POST">
                 <div class="form-group">
-                    <input type="text" name="refid" placeholder="Type Reference ID Here..." class="form-control">
+                    <input type="text" name="complaintId" placeholder="Type Reference ID Here..." class="form-control">
                 </div>
 
                 <button type="submit" class="btn btn-success btn-block mb-2">Confirm identity</button>
@@ -13,6 +13,27 @@
             </form>
         </div>
 
+        <div class="col-md-6">
+           <% if(complaint) { %>
+            <table class="table table-bordered">
+                <thead class="primary-color text-white">
+                  <tr>
+                    <th scope="col">Status</th>
+                    <th scope="col">Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row"> <%= complaint.status %>  </th>
+                    <td><%= complaint.feedback %></td>
+                  </tr>
+               
+                </tbody>
+              </table>
+           
+           <% } %>
+           
+        </div>
     </div>
 
 </div>

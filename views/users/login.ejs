@@ -1,0 +1,49 @@
+<%- include('../partials/_header.ejs') %>
+<%- include('../partials/_navbar.ejs') %>
+
+<div class="row p-5 mt-5">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 text-center">
+        <div class="container">
+            <h3 class="text-center mb-3">
+                <i class="fas fa-user-plus"></i> Login Form
+            </h3>
+        
+            <form action="/users/login" method="POST">
+        
+                <div class="form-group">
+                <input type="email" placeholder="Email" name="email" class="form-control"  required />
+                </div>
+        
+                <div class="form-group">
+                <input type="password" name="password" placeholder="Password" class="form-control"  required />
+                </div>
+        
+        
+                <button class="btn btn-success btn-block" type="submit">Login</button>
+        
+            </form>
+            <p class="lead mt-4">New to Blog?<a href="/users/register"> Register</a></p>
+            <br>
+     
+        
+        </div>
+
+        <%- include('../partials/_messages.ejs') %>
+    </div>
+    <div class="col-md-4"></div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br>
+<%- include('../partials/_copyright.ejs')%>
+<%- include('../partials/_footer.ejs')%>

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Joi = require("@hapi/joi");
+const moment = require('moment')
 
 const { feedbackSchema } = require('./feedback')
 
@@ -21,6 +22,11 @@ const complaintSchema = new mongoose.Schema({
   status: {
     type: String,
     default: "pending"
+  },
+  date : {
+    type : String,
+    default :  moment().format('MMMM Do YYYY, h:mm:ss a')
+
   },
   feedback : {
     type : feedbackSchema

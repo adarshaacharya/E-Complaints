@@ -1,10 +1,14 @@
 const express = require('express')
-
 const router = express.Router();
+
+const { Complaint } = require('../models/complaint')
 
 router.get('/', (req, res) => {
     try {
-        res.render('index.ejs')
+        const complaint = Complaint.find()
+        res.render('index.ejs', {
+            complaint : complaint
+        })
     }   catch(err) {
         console.log(err)
     }

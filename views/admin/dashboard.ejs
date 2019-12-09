@@ -1,0 +1,121 @@
+<%- include('../partials/_header.ejs') %>
+<%- include('../partials/_navbar.ejs') %>
+
+
+
+
+<section id="admin-dashboard">
+    <div class="container">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+            <li class="nav-item">
+                <a class="nav-link active" id="create-account-tab" data-toggle="tab" href="#create-account" role="tab"
+                    aria-controls="create-account" aria-selected="true">
+                    <i class="fas fa-tools"></i> Create Accounts</a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" id="complaints-tab" href="/admin/complaints" role="tab" aria-controls="complaints"
+                    aria-selected="false">
+                    <i class="fas fa-envelope-open-text"></i>
+                    Complaints</a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" id="users-tab" href="/users/display" role="tab" aria-controls="users"
+                    aria-selected="true">
+                    <i class="fas fa-user-ninja"></i>
+                    Users</a>
+            </li>
+
+
+        </ul>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mr-5">
+                    <div class="card mt-5" style="width: 18rem;">
+                        <div class="card-header"> Create Accounts</div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><a href="#" id="create-staff-btn">Create Staff Account <i class="fa fa-briefcase"
+                                    aria-hidden="true"></i></a> </li>
+
+                            <li class="list-group-item"><a href="#" id="create-admin-btn">Create Admin Account <i class="fas fa-shield-alt"
+                                    aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="create-account" role="tabpanel"
+                            aria-labelledby="create-account-tab">
+
+                            <!-- Staff Registration section-->
+                            <div id="staff-form" style="display : none;">
+                                <div class="card m-5">
+                                    <div class="card-header">Create Staff Account <i class="fa fa-briefcase"
+                                            aria-hidden="true"></i></div>
+                                    <div class="card-body">
+                                        <%- include('./forms/staff_register.ejs') %>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Ending Staff registration section-->
+
+                            <!-- Admin Registration section-->
+                            <div id="admin-form" style="display : none;">
+                                <div class="card m-5">
+                                    <div class="card-header">Create Admin Account <i class="fa fa-briefcase"
+                                            aria-hidden="true"></i></div>
+                                    <div class="card-body">
+                                        <%- include('./forms/admin_register.ejs') %>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Ending Staff registration section-->
+
+                        </div>
+                    </div>
+
+                    <%- include('../partials/_messages.ejs') %>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</section>
+
+
+
+<script>
+
+const staffBtn = document.getElementById('create-staff-btn');
+const adminBtn = document.getElementById('create-admin-btn');
+const staffForm = document.getElementById('staff-form');
+const adminForm = document.getElementById('admin-form');
+
+
+staffBtn.addEventListener('click', () => {
+    adminForm.style.display = 'none';
+    staffForm.style.display = 'block';
+});
+
+
+adminBtn.addEventListener('click', () => {
+    staffForm.style.display = 'none';
+    adminForm.style.display = 'block';
+});
+
+
+
+
+</script>
+
+<%- include('../partials/_footer.ejs')%>

@@ -11,12 +11,17 @@
   "license": "ISC",
   "dependencies": {
     "@hapi/joi": "^16.1.8",
+    "bcryptjs": "^2.4.3",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "express-flash": "0.0.2",
     "express-session": "^1.17.0",
+    "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
-    "mongoose": "^5.7.13"
+    "moment": "^2.24.0",
+    "mongoose": "^5.7.13",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0"
