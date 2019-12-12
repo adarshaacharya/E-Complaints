@@ -22,7 +22,7 @@ function checkAuthenticated(req, res, next) {
     next();
   }
   
-  
+
   module.exports = {
     checkAuthenticated : checkAuthenticated,
     checkNotAuthenticated : checkNotAuthenticated

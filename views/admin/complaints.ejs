@@ -69,13 +69,11 @@
                     <div class="card-body">
                         <form action="" method="post">
                             <div class="form-group">
-                                <label for="category">Department</label>
                                 <select name="department" class="browser-default custom-select" required>
 
                                     <% const staffs = users.filter((user) => user.role === 'staff') %>
                                     <% staffs.forEach((staff) => { %>
-                                    <option value=""> <%= staff.name %> </option>
-                                    <option value=""> <%= staff.department %> </option>
+                                    <option value=""> <%= `${staff.name} (${staff.department})` %> </option>
 
                                     <% }) %>
                                 </select>

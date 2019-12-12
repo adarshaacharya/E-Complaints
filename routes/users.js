@@ -86,6 +86,7 @@ router.post('/users/login', checkNotAuthenticated, (req, res, next) => {
       failureRedirect: '/users/login',
       failureFlash: true // show failure msg using message : error 
     })(req, res, next);
+   console.log(req.session)
   });
  
  

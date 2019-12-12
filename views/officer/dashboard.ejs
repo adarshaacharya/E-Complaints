@@ -3,6 +3,36 @@
 
 <%- include('../partials/_navbar.ejs') %>
 
-hello from officer
+
+
+<div class="container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+        <li class="nav-item">
+            <a class="nav-link active" id="create-account-tab" data-toggle="tab" href="#create-account" role="tab"
+                aria-controls="create-account" aria-selected="true">
+                <i class="fas fa-tools"></i> Create Accounts</a>
+        </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link" id="complaints-tab" href="/admin/complaints" role="tab" aria-controls="complaints"
+                aria-selected="false">
+                <i class="fas fa-envelope-open-text"></i>
+                Complaints</a>
+        </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link" id="users-tab" href="/users/display" role="tab" aria-controls="users"
+                aria-selected="true">
+                <i class="fas fa-user-ninja"></i>
+                Users</a>
+        </li>
+
+
+    </ul>
+</div>
+
 
 <%- include('../partials/_footer.ejs') %>

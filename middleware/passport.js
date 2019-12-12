@@ -17,6 +17,7 @@ function initialize(passport) {
       // Match password
       const isMatch = await bcrypt.compare(password, user.password);
       if (isMatch) {
+       
         return done(null, user);
       } else {
         return done(null, false, { message: "Password is incorrect" });
@@ -26,6 +27,7 @@ function initialize(passport) {
     }
   };
 
+  // using username as email in above function
   passport.use(new LocalStrategy({ usernameField: "email" }, authenticateUser));
 
   passport.serializeUser(function(user, done) {
