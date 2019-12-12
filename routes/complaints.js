@@ -4,6 +4,7 @@ const _ = require('lodash')
 const router = express.Router();
 
 const { Complaint , validateComplaint} = require('../models/complaint')
+const {User} =  require('../models/user')
 const {checkAuthenticated, checkNotAuthenticated} = require('../middleware/auth')
 
 // Add new complaint by users
@@ -31,10 +32,15 @@ router.post('/complaints/add', async(req, res) => {
 
 
 
-// view complaints frm admin dashboard
-router.get('/admin/complaints', checkAuthenticated, (req, res) => {
+// view complaints from admin dashboard
+router.get('/admin/complaints', checkAuthenticated, async(req, res) => {
     try {
-        res.render('admin/complaints.ejs')
+        const complaints = await Complaint.find();
+        const users = await User.find()
+        res.render('admin/complaints.ejs', {
+            complaints : complaints,
+            users : users
+        })
     }   catch{
         console.log(err)
     }

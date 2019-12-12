@@ -30,22 +30,62 @@
         </ul>
 
 
+
+
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="users" role="tabpanel" aria-labelledby="users-tab">
+                <div class="row">
 
-                <% users.forEach((user) => { %>
-                <%= user.name %>
-                <% }) %>
+                    <!-- Display Admins-->
+                    <div class="col-md-6 my-5">
+                        <div class="card">
+                            <div class="card-header">
+                                Admins <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <% const admins = users.filter((user) => user.role === 'admin') %>
+                                    <% admins.forEach((admin) => { %>
+                                    <li class="list-group-item">
+                                        <%= admin.name %>
+                                    </li>
+                                    <% }) %>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
-
-
-
-
-
+                    <!--Display Officers-->
+                    <div class="col-md-6 my-5">
+                        <div class="card">
+                            <div class="card-header">
+                                Respondent Staffs <i class="fas fa-cannabis"></i>
+                            </div>
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Department</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <% const staffs = users.filter((user) => user.role === 'staff') %>
+                                            <% staffs.forEach((staff) => { %>
+                                            <th scope="row"> <%= staff.name %></th>
+                                            <td>  <%= staff.department %> </td>
+                                        </tr>
+                                        <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-    </div>
+        </div>
 
 </section>
 

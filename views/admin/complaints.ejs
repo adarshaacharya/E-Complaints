@@ -6,10 +6,11 @@
 
 <section id="admin-dashboard">
     <div class="container">
+
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link" id="users-tab" href="/admin/dashboard" role="tab"
-                    aria-controls="users" aria-selected="true">
+                <a class="nav-link" id="users-tab" href="/admin/dashboard" role="tab" aria-controls="users"
+                    aria-selected="true">
                     <i class="fas fa-tools"></i>
                     Create Account</a>
             </li>
@@ -31,16 +32,87 @@
 
         </ul>
 
-    </div>
+        <div class="row my-5">
+
+            <!--display-complaints-->
+            <div class="col" id="display-complaints">
+                <div class="card">
+                    <div class="card-header">
+                        Complaints
+                    </div>
+                    <div class="card-body" style="overflow: auto;">
+                        <ul class="list-group list-group-flush">
+                            <% complaints.forEach((complaint) => { %>
+                            <li class="list-group-item">
+                                <%= complaint.description %>
+                                <a href="#" class="forward-icon"> <i class="fas fa-share-square float-right"
+                                        aria-hidden="true"></i></a>
+                            </li>
+                            <% }) %>
+                        </ul>
+
+                    </div>
+                    <div class="card-footer text-muted">
+                        2 days ago
+                    </div>
+                </div>
+            </div>
 
 
-    <div class="container">
-        Hello from complaints page
+            <!-- Forward Complaints-->
+            <div class="col-md-4" id="forward-complaints" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        Forward Complaint To :
+                    </div>
+
+                    <div class="card-body">
+                        <form action="" method="post">
+                            <div class="form-group">
+                                <label for="category">Department</label>
+                                <select name="department" class="browser-default custom-select" required>
+
+                                    <% const staffs = users.filter((user) => user.role === 'staff') %>
+                                    <% staffs.forEach((staff) => { %>
+                                    <option value=""> <%= staff.name %> </option>
+                                    <option value=""> <%= staff.department %> </option>
+
+                                    <% }) %>
+                                </select>
+
+                            </div>
+
+                            <button type="submit" class="btn btn-success btn-block">Forward</button>
+                        </form>
+                    </div>
+
+                    <div class="card-footer">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </section>
 
 
 
+
+<script>
+    const forwardIcon = document.querySelectorAll('.forward-icon');
+    const displayComplaints = document.getElementById('display-complaints');
+    const forwardComplaints = document.getElementById('forward-complaints');
+
+    if (forwardIcon) {
+        forwardIcon.forEach((el) => {
+            el.addEventListener('click', () => {
+                displayComplaints.classList.add('col-md-8');
+                forwardComplaints.style.display = 'block';
+            })
+        })
+    }
+</script>
 
 
 <%- include('../partials/_footer.ejs')%>

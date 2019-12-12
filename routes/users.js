@@ -14,7 +14,7 @@ router.get('/users/display', checkAuthenticated, async(req, res) => {
         const users = await User.find()
         res.render('admin/displayusers.ejs', {
             users : users
-        })
+        });
     }   catch(err) {
     console.log(err)
     }
@@ -46,7 +46,7 @@ router.post('/users/register', checkAuthenticated, async(req, res) => {
     } 
 
     try {
-        const user = new User(_.pick(req.body, ['name', 'email', 'password', 'role']));
+        const user = new User(_.pick(req.body, ['name', 'email', 'password', 'department', 'role']));
 
 
         const salt = await bcrypt.genSalt(10);
