@@ -64,14 +64,12 @@ require('../middleware/passport.js')(passport)
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 // setting global variable for every view as middleware function to check whether user is logged in or not
 app.use((req, res, next) => {
     res.locals.isAuthenticated = req.isAuthenticated()
     next();
 })
-
-
-
 
 
 

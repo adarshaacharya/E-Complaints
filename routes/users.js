@@ -82,11 +82,10 @@ router.get('/users/login', checkNotAuthenticated, (req, res) => {
 // Login submit
 router.post('/users/login', checkNotAuthenticated, (req, res, next) => {
     passport.authenticate('local', {
-      successRedirect: '/admin/dashboard',
+      successRedirect: '/dashboard',
       failureRedirect: '/users/login',
       failureFlash: true // show failure msg using message : error 
     })(req, res, next);
-   console.log(req.session)
   });
  
  

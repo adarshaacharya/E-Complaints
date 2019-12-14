@@ -2,7 +2,9 @@
 <%- include('../partials/_navbar.ejs') %>
 
 
-
+<div class="alert alert-success" role="alert" style="margin: 10px 50px;">
+    <strong>Welcome To Admin Dashbord !</strong>
+</div>
 
 <section id="admin-dashboard">
     <div class="container">
@@ -43,14 +45,25 @@
                                 Admins <i class="fas fa-shield-alt" aria-hidden="true"></i>
                             </div>
                             <div class="card-body">
-                                <ul class="list-group list-group-flush">
-                                    <% const admins = users.filter((user) => user.role === 'admin') %>
-                                    <% admins.forEach((admin) => { %>
-                                    <li class="list-group-item">
-                                        <%= admin.name %>
-                                    </li>
-                                    <% }) %>
-                                </ul>
+
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <% const admins = users.filter((user) => user.role === 'admin') %>
+                                            <% admins.forEach((admin) => { %>
+                                            <td> <%= admin.name %> </td>
+                                            <td> <%= admin.email %> </td>
+                                        </tr>
+                                        <% }) %>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -67,6 +80,7 @@
                                         <tr>
                                             <th scope="col">Name</th>
                                             <th scope="col">Department</th>
+                                            <th scope="col">Email</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -74,7 +88,8 @@
                                             <% const staffs = users.filter((user) => user.role === 'staff') %>
                                             <% staffs.forEach((staff) => { %>
                                             <th scope="row"> <%= staff.name %></th>
-                                            <td>  <%= staff.department %> </td>
+                                            <td> <%= staff.department %> </td>
+                                            <td> <%= staff.email %> </td>
                                         </tr>
                                         <% }) %>
                                     </tbody>

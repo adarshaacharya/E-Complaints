@@ -8,10 +8,14 @@ html{
 
 
 
+#logout-btn {
+    padding: 12px;
+}
 
-#logout-btn a:hover {
+#logout-btn:hover{
     cursor: pointer;
-    color: rgb(0, 255, 242);
+    background-color: #367cec;
+    color: rgb(208, 230, 7);
 }
 
 

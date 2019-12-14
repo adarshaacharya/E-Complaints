@@ -1,10 +1,13 @@
 <div class="container my-4">
     <nav class="navbar navbar-dark primary-color">
-        <a class="navbar-brand" href="/" target="_blank">E-Complaints | इलेक्ट्रोनिक उजुरी</a>
-       
+        <a class="navbar-brand" href="/">E-Complaints | इलेक्ट्रोनिक उजुरी</a>
             <% if(isAuthenticated) { %>
             <span id="logout-btn" class="navbar-text white-text my-0 mr-4">
                 <a href="/users/logout">Logout</a>
+            </span>
+            <% } else { %>
+                <span id="logout-btn" class="navbar-text white-text my-0 mr-4">
+                <a href="/users/login">Login</a>
             </span>
             <% } %>
     </nav>
