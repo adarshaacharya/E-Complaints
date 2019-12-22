@@ -23,13 +23,19 @@ const complaintSchema = new mongoose.Schema({
     type: String,
     default: "pending"
   },
+  forwardTo: {
+    type: mongoose.Schema.Types.ObjectId,
+
+  },
+  feedback: {
+    type: String,
+    minlength: 3,
+    maxlength: 5000
+  },
   date : {
     type : String,
     default :  moment().format('MMMM Do YYYY, h:mm:ss a')
 
-  },
-  feedback : {
-    type : feedbackSchema
   }
 });
 
@@ -41,7 +47,10 @@ function validateComplaint(complaint) {
 
     category: Joi.string().required(),
 
-    description: Joi.string().min(10).max(10000).required()
+    description: Joi.string().min(10).max(10000).required(),
+
+    feedback : Joi.string(),
+
   });
 
   return schema.validate(complaint)

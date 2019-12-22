@@ -2,7 +2,7 @@
 <%- include('../partials/_navbar.ejs') %>
 
 
-<div class="alert alert-success" role="alert" style="margin: 10px 50px;">
+<div class="alert alert-success" role="alert" style="margin: 10px 140px;">
     <strong>Welcome To Admin Dashbord !</strong>
 </div>
 
@@ -51,7 +51,7 @@
                                         <tr>
                                             <th scope="col">Name</th>
                                             <th scope="col">Email</th>
-
+                                            <th scope="col">Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -60,6 +60,11 @@
                                             <% admins.forEach((admin) => { %>
                                             <td> <%= admin.name %> </td>
                                             <td> <%= admin.email %> </td>
+                                            <td>  
+                                                <form action="/users/delete/<%=admin._id %>" method="post">
+                                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                                </form>             
+                                            </td>
                                         </tr>
                                         <% }) %>
                                     </tbody>
@@ -81,6 +86,7 @@
                                             <th scope="col">Name</th>
                                             <th scope="col">Department</th>
                                             <th scope="col">Email</th>
+                                            <th scope="col">Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -90,6 +96,11 @@
                                             <th scope="row"> <%= staff.name %></th>
                                             <td> <%= staff.department %> </td>
                                             <td> <%= staff.email %> </td>
+                                            <td>  
+                                                <form action="/users/delete/<%=staff._id %>" method="post">
+                                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                                </form>             
+                                            </td>
                                         </tr>
                                         <% }) %>
                                     </tbody>

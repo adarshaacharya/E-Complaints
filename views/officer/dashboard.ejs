@@ -1,38 +1,121 @@
-
 <%- include('../partials/_header.ejs') %>
 
 <%- include('../partials/_navbar.ejs') %>
 
 
 <div class="alert alert-success" role="alert" style="margin: 10px 50px;">
-    <strong>Welcome To Officer Dashbord !</strong> 
+    <strong>Welcome To Officer Dashbord !</strong>
 </div>
 
 <div class="container">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
 
+        <!--reply staff nav -->
         <li class="nav-item">
-            <a class="nav-link active" id="create-account-tab" data-toggle="tab" href="#create-account" role="tab"
-                aria-controls="create-account" aria-selected="true">
-              <i class="fa fa-user" aria-hidden="true"></i> Respondent Staff</a>
+            <a class="nav-link active" id="staffs-tab" data-toggle="tab" href="#staffs" role="tab"
+                aria-controls="staffs" aria-selected="true">
+                <i class="fas fa-user"></i> <%=staff.name %> </a>
         </li>
 
-
+        <!-- Complaints history nav-->
         <li class="nav-item">
             <a class="nav-link" id="complaints-tab" href="/officer/complaints" role="tab" aria-controls="complaints"
                 aria-selected="false">
                 <i class="fas fa-envelope-open-text"></i>
                 Complaints</a>
         </li>
-
-
-  
-
-
     </ul>
 
-    
+
+    <div class="container">
+        <!--Complaint section -->
+        <div class="tab-content" id="myTab">
+            <div class="tab-pane fade show active" id="staffs" role="tabpanel" aria-labelledby="staffs-tab">
+                <div class="row">
+
+
+                    <div class="col mt-3" id="complaints">
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col" class="bold">#</th>
+                                            <th scope="col" class="bold"><i class="fas fa-bullhorn"></i> Complaints</th>
+                                            <th scope="col" class="bold"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Date</th>
+                                            <th scope="col" class="bold">Reply</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% count = 0 %>
+                                        <% complaints.forEach((complaint) => { %>
+                                        <tr>
+                                            <th scope="row"><%= count++ %></th>
+                                            <td><%= complaint.description %></td>
+                                            <td><%= complaint.date %></td>
+                                            <td><a href="#" onclick="show('<%= complaint._id%>')">Reply <i
+                                                    class="fas fa-pencil-alt"></i></a> 
+
+                                                <input id="desc_<%=complaint._id%>" type="hidden" value="<%=complaint.description%>" />
+                                            </td>
+                                            
+                                        </tr>
+                                        <% }) %>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="col-md-4 mt-4" style="display: none;" id="reply-field">
+                        <div class="card">
+                            <div class="card-header">Reply Complaint :</div>
+                            <div class="card-body">
+
+                                <span id="complaint_text" class="text-success"></span>
+
+                                <form action="" method="post">
+                                    <div class="form-group">
+                                        <textarea name="reply" placeholder="Reply Complaint Here..."
+                                            class="form-control" style="height:100px;" required="required"></textarea>
+
+                                        <button type="submit" class="btn btn-primary btn-block my-3">Reply</button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
 </div>
 
+
+
+</div>
+
+
+<script>
+    const replyField = document.getElementById('reply-field')
+    const complaintsField = document.getElementById('complaints')
+    const complaintText  = document.getElementById("complaint_text")
+    function show(id) {
+        const body = document.getElementById("desc_"+id).value
+	    complaintText.innerHTML = body
+        complaintsField.classList.add('col-md-8')
+        replyField.style.display = 'block'
+    }
+</script>
 
 <%- include('../partials/_footer.ejs') %>

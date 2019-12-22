@@ -8,7 +8,7 @@ const {User, validateUser} = require('../models/user')
 const {checkAuthenticated, checkNotAuthenticated} = require('../middleware/auth')
 
 
-// show all users
+// show all users in admin panel
 router.get('/users/display', checkAuthenticated, async(req, res) => {
     try {
         const users = await User.find()
@@ -16,21 +16,13 @@ router.get('/users/display', checkAuthenticated, async(req, res) => {
             users : users
         });
     }   catch(err) {
-    console.log(err)
+        console.log(err)
     }
 })
 
-// get user registration form
-// router.get('/users/register', checkAuthenticated, (req, res) => {
-//     try {
-//         res.render('test.ejs')
-//     }   catch(err) {
-//         console.log(err)
-//     }
-
-// })
 
 
+// register new admin / staff
 router.post('/users/register', checkAuthenticated, async(req, res) => {
 
     const { error } = validateUser(req.body)
@@ -68,6 +60,17 @@ router.post('/users/register', checkAuthenticated, async(req, res) => {
 
 })
 
+
+// delete admin /officer
+router.post('/users/delete/:id', checkAuthenticated, async(req, res) => {
+    try {
+        const user = await User.findByIdAndDelete(req.params.id)
+        await req.flash('success_msg', 'User deleted succesfully')
+        res.redirect('/users/display');
+    }   catch(err) {
+        console.log(err)
+    }
+})
 
 // login form
 router.get('/users/login', checkNotAuthenticated, (req, res) => {

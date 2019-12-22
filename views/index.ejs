@@ -12,10 +12,14 @@
                     aria-controls="complaint" aria-selected="true">Complaints</a>
             </li>
 
+        
             <li class="nav-item">
-                <a class="nav-link" id="feedback-tab" data-toggle="tab" href="#feedback" role="tab"
-                    aria-controls="feedback" aria-selected="false">Feedback</a>
+                <a class="nav-link" id="feedback-tab" href="/feedback/view" role="tab" aria-controls="complaints"
+                    aria-selected="false">
+                    <i class="fas fa-envelope-open-text"></i>
+                    Feedback</a>
             </li>
+
 
         </ul>
 
@@ -25,10 +29,7 @@
                 <%- include('./complaints/add.ejs') %>
             </div>
 
-            <div class="tab-pane fade" id="feedback" role="tabpanel" aria-labelledby="feedback-tab">
-                    <%- include('./feedback/view.ejs') %>
-            </div>
-
+    
         </div>
     </div>
 

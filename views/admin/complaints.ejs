@@ -1,9 +1,9 @@
 <%- include('../partials/_header.ejs') %>
 <%- include('../partials/_navbar.ejs') %>
 
-<div class="alert alert-success" role="alert" style="margin: 10px 50px;">
-        <strong>Welcome To Admin Dashbord !</strong> 
-    </div>
+<div class="alert alert-success" role="alert" style="margin: 10px 140px;">
+    <strong>Welcome To Admin Dashbord !</strong>
+</div>
 
 <section id="admin-dashboard">
     <div class="container">
@@ -42,19 +42,20 @@
                     </div>
                     <div class="card-body" style="overflow: auto;">
                         <ul class="list-group list-group-flush">
-                            <% complaints.forEach((complaint) => { %>
+                            <% const filterComplaints = complaints.filter(complaint =>  typeof complaint.forwardTo === 'undefined') %>
+
+                            <% filterComplaints.forEach((complaint) => { %>
                             <li class="list-group-item">
                                 <%= complaint.description %>
-                                <a href="#" class="forward-icon"> <i class="fas fa-share-square float-right"
-                                        aria-hidden="true"></i></a>
+                                <a href="#" onclick="forward(`<%= complaint._id %>`)"> 
+                                    <i class="fas fa-share-square float-right" aria-hidden="true"></i>
+                                </a>
                             </li>
-                            <% }) %>
+                            <% }); %>
                         </ul>
 
                     </div>
-                    <div class="card-footer text-muted">
-                        2 days ago
-                    </div>
+
                 </div>
             </div>
 
@@ -67,26 +68,23 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action="/admin/complaints/forward" method="post">
                             <div class="form-group">
-                                <select name="department" class="browser-default custom-select" required>
+                                <select name="staffId" class="browser-default custom-select" required>
 
                                     <% const staffs = users.filter((user) => user.role === 'staff') %>
                                     <% staffs.forEach((staff) => { %>
-                                    <option value=""> <%= `${staff.name} (${staff.department})` %> </option>
-
+                                    <option value=<%=staff._id%>> <%= `${staff.name} (${staff.department})` %> </option>
                                     <% }) %>
                                 </select>
-
                             </div>
 
-                            <button type="submit" class="btn btn-success btn-block">Forward</button>
+                            <input type="hidden" name="complaintId" value="" id="complaint">
+                            <button type="submit" class="btn btn-primary btn-block">Forward</button>
                         </form>
-                    </div>
-
-                    <div class="card-footer">
 
                     </div>
+
                 </div>
             </div>
 
@@ -98,19 +96,17 @@
 
 
 <script>
-    const forwardIcon = document.querySelectorAll('.forward-icon');
     const displayComplaints = document.getElementById('display-complaints');
     const forwardComplaints = document.getElementById('forward-complaints');
 
-    if (forwardIcon) {
-        forwardIcon.forEach((el) => {
-            el.addEventListener('click', () => {
-                displayComplaints.classList.add('col-md-8');
-                forwardComplaints.style.display = 'block';
-            })
-        })
+    function forward(cid) {
+        displayComplaints.classList.add('col-md-8');
+        forwardComplaints.style.display = 'block';
+        //set respondents ID
+        document.getElementById("complaint").value = cid;
     }
+
 </script>
 
-
+<%- include('../partials/_messages.ejs') %>
 <%- include('../partials/_footer.ejs')%>

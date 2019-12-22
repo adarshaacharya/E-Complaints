@@ -34,6 +34,7 @@ router.post('/complaints/add', async(req, res) => {
 
 // view complaints from admin dashboard
 router.get('/admin/complaints', checkAuthenticated, async(req, res) => {
+    if(req.session.role === 'staff') res.render('officer/dashboard.ejs')
     try {
         const complaints = await Complaint.find();
         const users = await User.find()
@@ -42,6 +43,24 @@ router.get('/admin/complaints', checkAuthenticated, async(req, res) => {
             users : users
         })
     }   catch{
+        console.log(err)
+    }
+})
+
+
+// forward complaints by admin
+router.post('/admin/complaints/forward', checkAuthenticated, async(req, res) => {
+    try {
+        const staffId = req.body.staffId
+        const complaintId = req.body.complaintId
+
+        await Complaint.updateOne(
+           {_id: complaintId}, 
+           {  $set :  { forwardTo : staffId } }
+        );
+
+       res.redirect('/admin/complaints')
+    }   catch(err){
         console.log(err)
     }
 })

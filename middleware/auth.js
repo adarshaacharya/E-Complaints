@@ -46,8 +46,6 @@ function checkNotAuthenticated(req, res, next) {
 //k ho yo feri export ?  yo duita function lai export gareko
 
 module.exports = {
-
-
   checkAuthenticated: checkAuthenticated,
   checkNotAuthenticated: checkNotAuthenticated
 };
