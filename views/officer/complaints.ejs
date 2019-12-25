@@ -13,21 +13,50 @@
         <a class="nav-link" id="officer-tab" href="/officer/dashboard" role="tab" aria-controls="officers"
             aria-selected="true">
             <i class="fas fa-user"></i>
-           Respondant Staffs</a>
+           <%=staff.name %></a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link active" id="complaints-tab" href="/officer/complaints" role="tab" aria-controls="complaints"
           aria-selected="false">
-          <i class="fas fa-envelope-open-text"></i>
-          Complaints</a>
+          <i class="fas fa-history"></i> Complaints History</a>
       </li>
     </ul>
 
 
     <div class="row">
       <div class="col">
-        HELLO FROM COMPLAINTS
+        <div class="card">
+          <div class="card-body">
+              <table class="table">
+                  <thead class="thead-light">
+                      <tr>
+                          <th scope="col" class="bold">#</th>
+                          <th scope="col" class="bold"><i class="fas fa-bullhorn"></i> Complaints</th>
+                          <th scope="col" class="bold"><i class="fas fa-calendar-alt"
+                                  aria-hidden="true"></i> Date</th>
+                          <th scope="col" class="bold"><i class="fas fa-reply"
+                                    aria-hidden="true"></i> Feedback</th>
+
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <% const filterComplaints = complaints.filter(complaint =>   complaint.status === 'done') %>
+
+                      <% count = 0 %>
+                      <% filterComplaints.forEach((complaint) => { %>
+                      <tr>
+                          <th scope="row"><%= count++ %></th>
+                          <td><%= complaint.description %></td>
+                          <td><%= complaint.date %></td>
+                          <td><%= complaint.feedback %></td>
+                      </tr>
+                      <% }); %>
+
+                  </tbody>
+              </table>
+          </div>
+      </div>
       </div>
     </div>
 

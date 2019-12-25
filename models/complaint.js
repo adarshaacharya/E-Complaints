@@ -2,8 +2,6 @@ const mongoose = require("mongoose");
 const Joi = require("@hapi/joi");
 const moment = require('moment')
 
-const { feedbackSchema } = require('./feedback')
-
 const complaintSchema = new mongoose.Schema({
   citizenship: {
     type: String,
@@ -25,7 +23,6 @@ const complaintSchema = new mongoose.Schema({
   },
   forwardTo: {
     type: mongoose.Schema.Types.ObjectId,
-
   },
   feedback: {
     type: String,
@@ -35,7 +32,6 @@ const complaintSchema = new mongoose.Schema({
   date : {
     type : String,
     default :  moment().format('MMMM Do YYYY, h:mm:ss a')
-
   }
 });
 
