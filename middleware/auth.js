@@ -2,21 +2,15 @@
 
 function checkAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
-    
       if(req.user.role === 'admin') {
-        req.session.role = 'admin'
-       
+        req.session.role = 'admin';
       }
       
-  
       if(req.user.role === 'staff') {
-        req.session.role = 'staff'
-      
+        req.session.role = 'staff';
       }
-    return next();
+      return next();
     }
-
- 
 
   // if not authenticated
   req.flash("error_msg", "You're not authorized to view this resource");
@@ -28,13 +22,12 @@ function checkNotAuthenticated(req, res, next) {
   // if authenticated
   if (req.isAuthenticated()) {
     if(req.user.role === 'admin') {
-      req.session.role = 'admin'
+      req.session.role = 'admin';
       return res.redirect("/admin/dashboard");
     }
     
-
     if(req.user.role === 'staff') {
-      req.session.role = 'staff'
+      req.session.role = 'staff';
       return res.redirect("/officer/dashboard");
     }
   
