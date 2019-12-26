@@ -28,7 +28,7 @@ function checkNotAuthenticated(req, res, next) {
     
     if(req.user.role === 'staff') {
       req.session.role = 'staff';
-      return res.redirect("/officer/dashboard");
+      return res.redirect("/staff/dashboard");
     }
   
   }

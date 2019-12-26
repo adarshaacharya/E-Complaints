@@ -1,8 +1,8 @@
 <%- include('../partials/_header.ejs') %>
 <%- include('../partials/_navbar.ejs') %>
 
-<div class="alert alert-success" role="alert" style="margin: 10px 140px;">
-    <strong>Welcome To Admin Dashbord !</strong>
+<div class="alert alert-success" role="alert" style="margin: 10px 60px;">
+    <strong>Welcome To Admin Dashbord Mr. <%= admin.name %> !</strong>
 </div>
 
 <section id="admin-dashboard">
@@ -24,7 +24,7 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" id="create-account-tab" href="/users/display" role="tab"
+                <a class="nav-link" id="create-account-tab" href="/admin/users/display" role="tab"
                     aria-controls="create-account" aria-selected="true">
                     <i class="fas fa-user-ninja"></i>Users</a>
             </li>

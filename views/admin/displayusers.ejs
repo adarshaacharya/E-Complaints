@@ -2,8 +2,8 @@
 <%- include('../partials/_navbar.ejs') %>
 
 
-<div class="alert alert-success" role="alert" style="margin: 10px 140px;">
-    <strong>Welcome To Admin Dashbord !</strong>
+<div class="alert alert-success" role="alert" style="margin: 10px 60px;">
+    <strong>Welcome To Admin Dashbord Mr. <%= admin.name %> !</strong>
 </div>
 
 <section id="admin-dashboard">
@@ -47,7 +47,7 @@
                             <div class="card-body">
 
                                 <table class="table">
-                                    <thead class="thead-dark">
+                                    <thead class="thead bg-light text-dark">
                                         <tr>
                                             <th scope="col">Name</th>
                                             <th scope="col">Email</th>
@@ -60,10 +60,11 @@
                                             <% admins.forEach((admin) => { %>
                                             <td> <%= admin.name %> </td>
                                             <td> <%= admin.email %> </td>
-                                            <td>  
-                                                <form action="/users/delete/<%=admin._id %>" method="post">
-                                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                                </form>             
+                                            <td>
+                                                <form action="/admin/users/delete/<%=admin._id %>" method="post">
+                                                    <button type="submit" class="btn btn-sm btn-danger"> <i
+                                                            class="far fa-trash-alt"></i></button>
+                                                </form>
                                             </td>
                                         </tr>
                                         <% }) %>
@@ -73,7 +74,7 @@
                         </div>
                     </div>
 
-                    <!--Display Officers-->
+                    <!--Display staffs-->
                     <div class="col-md-6 my-5">
                         <div class="card">
                             <div class="card-header">
@@ -81,7 +82,7 @@
                             </div>
                             <div class="card-body">
                                 <table class="table">
-                                    <thead class="thead-dark">
+                                    <thead class="thead bg-light text-dark">
                                         <tr>
                                             <th scope="col">Name</th>
                                             <th scope="col">Department</th>
@@ -96,13 +97,14 @@
                                             <th scope="row"> <%= staff.name %></th>
                                             <td> <%= staff.department %> </td>
                                             <td> <%= staff.email %> </td>
-                                            <td>  
-                                                <form action="/users/delete/<%=staff._id %>" method="post">
-                                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                                </form>             
+                                            <td>
+                                                <form action="/admin/users/delete/<%=staff._id %>" method="post">
+                                                    <button type="submit" class="btn btn-sm btn-danger"> <i
+                                                            class="far fa-trash-alt"></i></button>
+                                                </form>
                                             </td>
                                         </tr>
-                                        <% }) %>
+                                        <% }); %>
                                     </tbody>
                                 </table>
                             </div>

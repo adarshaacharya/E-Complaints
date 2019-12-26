@@ -5,15 +5,26 @@ const {checkAuthenticated, checkNotAuthenticated} = require('../middleware/auth'
 
 const AdminController = require('../controllers/AdminController');
 
-
-router.get("/dashboard", checkAuthenticated, AdminController.dashboard);
-
+const {isAdmin} = require('../middleware/role')
 
 // view admin dashboard
-router.get("/admin/dashboard", checkAuthenticated, AdminController.adminDashboad);
+router.get("/dashboard", checkAuthenticated, isAdmin, AdminController.adminDashboad);
+
+// register new admin / staff
+router.post('/users/register', checkAuthenticated,  AdminController.registerUser)
+
+// view complaints from admin dashboard
+router.get('/complaints', checkAuthenticated, isAdmin, AdminController.adminComplaints)
+
+// forward complaints by admin
+router.post('/complaints/forward', checkAuthenticated, AdminController.forwardComplaints)
+
+// show all users in admin panel
+router.get('/users/display', checkAuthenticated, isAdmin, AdminController.displayUsers)
+
+// delete admin /officer
+router.post('/users/delete/:id', checkAuthenticated, AdminController.deleteUser)
 
 
-// logout
-router.get("/admin/logout", checkAuthenticated, AdminController.adminLogOut);
 
 module.exports = router;

@@ -3,17 +3,16 @@ const { checkAuthenticated, checkNotAuthenticated} = require("../middleware/auth
 const {Complaint} = require('../models/complaint')
 
 /**
- * @route GET /officer/dashboard
+ * @route GET /staff/dashboard
  * @description View Staff Dashboard
  * @type RequestHandler
  */
 exports.staffDashboard = async (req, res) => {
-    if (req.session.role === "admin") return res.render("officer/dashboard.ejs");
+ // if(req.session.role === 'admin') return res.render('admin/dashboard.ejs', {admin : req.user})
 
     try {
-      const complaints = await Complaint.find({ forwardTo : req.user._id})
-  
-      res.render('officer/dashboard.ejs',{
+      const complaints = await Complaint.find({ forwardTo : req.user._id});
+      res.render('staff/dashboard.ejs',{
         staff : req.user,
         complaints : complaints
       });
@@ -24,22 +23,21 @@ exports.staffDashboard = async (req, res) => {
 
 
 /**
- * @route GET /officer/complaints
+ * @route GET /staff/complaints
  * @description View Complaints from Staff Page
  * @type RequestHandler
  */
 exports.viewComplaints = async (req, res) => {
-    if (req.session.role === "admin") return   res.render('officer/dashboard.ejs');
+  if(req.session.role === 'admin') return res.render('admin/dashboard.ejs', {admin : req.user})
     try {
       const complaints = await Complaint.find({ forwardTo : req.user._id})
   
       if (req.session.role === "staff") {
-        return res.render("officer/complaints.ejs", {
+        return res.render("staff/complaints.ejs", {
           staff : req.user,
           complaints : complaints
         });
       }
-  
     } catch(err) {
       console.log(err)
     }
@@ -58,20 +56,8 @@ exports.complaintFeedback = async(req, res) => {
         );
   
         await req.flash("success_msg", "Complaint replied successfully");
-        res.redirect('/officer/dashboard')
+        res.redirect('/staff/dashboard')
     } catch(err) {
       console.log(err)
     }
-}
-
-/**
- * @route GET /staff/logout
- * @description LogOut from staff page
- * @type RequestHandler
- */
-exports.staffLogOut = async(req, res) => {
-    req.session.destroy();
-    req.logOut();
-    req.flash("success_msg", "Successfully logged out");
-    res.redirect("/");
 }

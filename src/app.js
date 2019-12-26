@@ -83,16 +83,16 @@ const complaintRouter = require('../routes/complaints')
 app.use(complaintRouter)
 
 const feedbackRouter = require('../routes/feedback')
-app.use(feedbackRouter)
+app.use('/feedback',feedbackRouter)
 
 const userRouter = require('../routes/users')
-app.use(userRouter)
+app.use('/users', userRouter)
 
 const adminRouter = require('../routes/admin')
-app.use(adminRouter)
+app.use('/admin',adminRouter)
 
-const officerRouter = require('../routes/officer')
-app.use(officerRouter)
+const staffRouter = require('../routes/staff')
+app.use('/staff',staffRouter)
 
 
 

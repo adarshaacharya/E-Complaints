@@ -25,7 +25,7 @@
 
                 <div class="form-group mt-3">
                     <label for="description">Enter complaint</label>
-                    <textarea name="description" class="form-control" id="description" rows="5" required> <%= typeof (description) != 'undefined' ? description : '' %> </textarea>
+                    <textarea name="description" class="form-control" id="description" rows="5" required><%= typeof (description) != 'undefined' ?description:'' %></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-block">Send Complaint</button>

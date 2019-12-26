@@ -32,45 +32,5 @@ exports.addComplaint = async (req, res) => {
     }
 }
 
-/**
- * @route GET /admin/complaints
- * @description get complaints from admin dashboard
- * @type RequestHandler
- */
-exports.adminComplaints = async(req, res) => {
-    if(req.session.role === 'staff') res.render('officer/dashboard.ejs')
-    try {
-        const complaints = await Complaint.find();
-        const users = await User.find()
-        res.render('admin/complaints.ejs', {
-            complaints : complaints,
-            users : users
-        })
-    }   catch{
-        console.log(err)
-    }
-}
-
-
-/**
- * @route POST /admin/complaints/forward
- * @description forward complaints by admin to staff
- * @type RequestHandler
- */
-exports.forwardComplaints = async(req, res) => {
-        try {
-            const staffId = req.body.staffId
-            const complaintId = req.body.complaintId
-    
-            await Complaint.updateOne(
-               {_id: complaintId}, 
-               {  $set :  { forwardTo : staffId } }
-            );
-    
-           res.redirect('/admin/complaints')
-        }   catch(err){
-            console.log(err)
-        }
-}
 
 
