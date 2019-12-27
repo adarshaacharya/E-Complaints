@@ -44,6 +44,7 @@
                         <ul class="list-group list-group-flush">
                             <% const filterComplaints = complaints.filter(complaint =>  typeof complaint.forwardTo === 'undefined') %>
 
+                            <% if(filterComplaints.length == 0)%> No complaints received
                             <% filterComplaints.forEach((complaint) => { %>
                             <li class="list-group-item">
                                 <%= complaint.description %>

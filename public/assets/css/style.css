@@ -1,18 +1,15 @@
-html{
+html {
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
 }
 
 
-
-
-
 #logout-btn {
     padding: 12px;
 }
 
-#logout-btn:hover{
+#logout-btn:hover {
     cursor: pointer;
     background-color: #367cec;
     color: rgb(208, 230, 7);
@@ -22,4 +19,19 @@ html{
 .bold {
     font-size: large;
     font-weight: bold;
+}
+
+
+
+/*===========
+    Preloader
+============*/
+.loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(https://flevix.com/wp-content/uploads/2019/12/Bounce-Loading-Image.gif) center no-repeat #fff;
 }

@@ -4,7 +4,7 @@
             <form action="/complaints/add" method="post">
 
                 <div class="form-group">
-                    <label for="citizenship">नागरिकता नम्बर</label>
+                    <label for="citizenship">Citizenship Number</label>
                     <i class="fas fa-envelope prefix"></i>
                     <input type="text" name="citizenship" id="citizenship" class="form-control" value="<%= typeof (citizenship) != 'undefined' ? citizenship : '' %>" required>
                 </div>
@@ -36,13 +36,14 @@
 
         <div class="col-md-6">
                 <div class="card">
-                    
                         <h4 class="card-header"><a>How To Use ?</a></h4>
-                        <p class="card-body">Type Complaint in the Field ,You Will Receive A Reference ID, which You Will Use To Get Your FeedBack</p>
-                   
+                        <div class="card-body">
+                            Type complaint in the field aside. You will then receive a reference ID. Copy that ID safe and use that ID in next Feedback tab to get the feedback from officer.
+                        
+                            <hr>
+                
+                        </div>
                 </div>
-
-
                 <%- include('../partials/_messages.ejs') %>
         </div>
     </div>

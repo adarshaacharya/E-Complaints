@@ -1,6 +1,7 @@
-const express = require("express");
+const _ = require('lodash')
+const bcrypt = require('bcryptjs');
 
-const {User} = require('../models/user')
+const {User, validateUser} = require('../models/user')
 const {Complaint} = require('../models/complaint')
 
 /**
@@ -36,18 +37,19 @@ exports.registerUser = async(req, res) => {
           name : req.body.name,
           email : req.body.email,
           password  : req.body.password,
-          confirmPassword : req.body.confirmPassword
+          confirmPassword : req.body.confirmPassword,
+          admin : req.user
       })
   } 
 
-  try {
+  try { 
       const user = new User(_.pick(req.body, ['name', 'email', 'password', 'department', 'role']));
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(user.password, salt)
       user.password = hashedPassword;
       await user.save();
 
-      await req.flash('success_msg', `${req.body.name} successfully registered and can login.`)
+      await req.flash('success_msg', `${req.body.name} : ${req.body.email} successfully registered as ${req.body.role} and can login.`);
       res.redirect('/admin/dashboard')
    }   catch(error) {
       return res.render('admin/dashboard.ejs', {
@@ -98,7 +100,7 @@ exports.forwardComplaints = async(req, res) => {
            {_id: complaintId}, 
            {  $set :  { forwardTo : staffId } }
         );
-
+        await req.flash("success_msg","Complaint forwarded successfully")
        res.redirect('/admin/complaints')
     }   catch(err){
         console.log(err)

@@ -27,7 +27,7 @@ function initialize(passport) {
     }
   };
 
-  // using username as email in above function
+  // using email as email in above function
   passport.use(new LocalStrategy({ usernameField: "email" }, authenticateUser));
 
   passport.serializeUser(function(user, done) {

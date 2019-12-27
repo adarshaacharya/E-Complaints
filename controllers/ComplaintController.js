@@ -1,9 +1,7 @@
-const express = require('express')
-const _ = require('lodash')
-
 
 const { Complaint , validateComplaint} = require('../models/complaint')
 const {User} =  require('../models/user')
+const _ = require('lodash')
 
 /**
  * @route POST /complaints/add
@@ -24,7 +22,7 @@ exports.addComplaint = async (req, res) => {
     try {
         const complaint = new Complaint(_.pick(req.body, ['citizenship', 'category', 'description']))
         const newComplaint =  await complaint.save();
-        await req.flash('success_msg', `Complaint registered succesfully. Reference ID : ${newComplaint._id}`);
+        await req.flash('success_msg', `Complaint sent succesfully ! Copy the Reference ID below: ${newComplaint._id}`);
 
         res.redirect('/');
     }   catch(err) {

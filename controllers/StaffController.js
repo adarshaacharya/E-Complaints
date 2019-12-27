@@ -1,5 +1,4 @@
 const _ = require('lodash')
-const { checkAuthenticated, checkNotAuthenticated} = require("../middleware/auth");
 const {Complaint} = require('../models/complaint')
 
 /**
@@ -8,8 +7,6 @@ const {Complaint} = require('../models/complaint')
  * @type RequestHandler
  */
 exports.staffDashboard = async (req, res) => {
- // if(req.session.role === 'admin') return res.render('admin/dashboard.ejs', {admin : req.user})
-
     try {
       const complaints = await Complaint.find({ forwardTo : req.user._id});
       res.render('staff/dashboard.ejs',{
@@ -28,7 +25,6 @@ exports.staffDashboard = async (req, res) => {
  * @type RequestHandler
  */
 exports.viewComplaints = async (req, res) => {
-  if(req.session.role === 'admin') return res.render('admin/dashboard.ejs', {admin : req.user})
     try {
       const complaints = await Complaint.find({ forwardTo : req.user._id})
   
