@@ -33,7 +33,6 @@ app.use(express.static(publicDirectoryPath));
 // Ejs Engine
 app.set('viewengine', 'ejs')
 
-console.log(process.env.DATABASE_URL)
 // connecting db
 mongoose.connect(process.env.DATABASE_URL, {
     useCreateIndex: true,
@@ -41,7 +40,7 @@ mongoose.connect(process.env.DATABASE_URL, {
     useUnifiedTopology: true
 })
   .then(() => console.log("Connected to database successfully..."))
-  .catch(() => console.log("Failed to connect to database"));
+  .catch((err) => console.log("Failed to connect to database", err));
 
 // Express session middleware 
 app.use(session({
