@@ -13,6 +13,8 @@ const passport = require('passport')
 
 
 const app = express()
+// prevent stack traces on production
+app.set("env", process.env.NODE_ENV);
 
 
 // Middleware to Handle Post request
@@ -94,7 +96,8 @@ app.use('/admin',adminRouter)
 const staffRouter = require('../routes/staff')
 app.use('/staff',staffRouter)
 
-
+const errorRouter = require('../routes/404')
+app.use(errorRouter)
 
 
 
