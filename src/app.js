@@ -34,14 +34,14 @@ app.use(express.static(publicDirectoryPath));
 app.set('viewengine', 'ejs')
 
 
-// Connect DB
+// connecting db
 mongoose.connect(process.env.DATABASE_URL, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-    .then(() => console.log('Connected to database'))
-    .catch(err => console.error("Could not connect to MongoDB..."));
+  .then(() => console.log("Connected to database successfully..."))
+  .catch(() => console.log("Failed to connect to database"));
 
 // Express session middleware 
 app.use(session({

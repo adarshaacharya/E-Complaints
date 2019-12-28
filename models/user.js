@@ -32,11 +32,6 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema)
 
-// JWT 
-userSchema.methods.generateAuthToken = function() {
-    const token = jwt.sign({_id : this._id, role : this.role}, process.env.JWT_PRIVATE_KEY)
-    return token;
-}
 
 
 // Joi validation
