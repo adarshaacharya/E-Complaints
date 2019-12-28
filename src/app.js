@@ -33,7 +33,7 @@ app.use(express.static(publicDirectoryPath));
 // Ejs Engine
 app.set('viewengine', 'ejs')
 
-
+console.log(process.env.DATABASE_URL)
 // connecting db
 mongoose.connect(process.env.DATABASE_URL, {
     useCreateIndex: true,
