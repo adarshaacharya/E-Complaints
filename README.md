@@ -27,6 +27,14 @@ npm install
 npm run start
 ```
 
+#### Create .env file and copy this code there
+_(make sure that you've installed MongoDB)_
+
+```sh
+DATABASE_URL = "mongodb://localhost/e-complaints"
+```
+
+  
 ## Author
 
 👤 **Aadarsha Acharya**
@@ -50,4 +58,3 @@ Copyright © 2019 [Aadarsha Acharya](https://github.com/adarshaacharya).<br />
 This project is [GNU General Public License v3.0](https://github.com/adarshaacharya/E-Complaints/blob/master/LICENSE) licensed.
 
 ***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
