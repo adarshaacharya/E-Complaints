@@ -35,22 +35,19 @@
 
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="users" role="tabpanel" aria-labelledby="users-tab">
+             <div class="container">
                 <div class="row">
 
                     <!-- Display Admins-->
-                    <div class="col-md-6 my-5">
-                        <div class="card">
-                            <div class="card-header">
-                                Admins <i class="fas fa-shield-alt" aria-hidden="true"></i>
-                            </div>
-                            <div class="card-body">
+                    <div class="col-md-6 mt-5 ">
+                        Admins <i class="fas fa-shield-alt" aria-hidden="true"></i>
 
                                 <table class="table">
                                     <thead class="thead bg-light text-dark">
                                         <tr>
                                             <th scope="col">Name</th>
                                             <th scope="col">Email</th>
-                                            <th scope="col">Delete</th>
+                                            <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -61,32 +58,27 @@
                                             <td> <%= admin.email %> </td>
                                             <td>
                                                 <form action="/admin/users/delete/<%=admin._id %>" method="post">
-                                                    <button type="submit" class="btn btn-sm btn-danger"> <i
-                                                            class="far fa-trash-alt"></i></button>
+                                                    <button type="submit" id="delete-btn" class="btn btn-sm btn-danger"> <i
+                                                      class="far fa-trash-alt"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
                                         <% }) %>
                                     </tbody>
                                 </table>
-                            </div>
-                        </div>
                     </div>
 
+
                     <!--Display staffs-->
-                    <div class="col-md-6 my-5">
-                        <div class="card">
-                            <div class="card-header">
-                                Respondent Staffs <i class="fas fa-cannabis"></i>
-                            </div>
-                            <div class="card-body">
+                    <div class="col-md-6 mt-5">
+                        Respondent Staffs <i class="fas fa-cannabis"></i>
                                 <table class="table">
                                     <thead class="thead bg-light text-dark">
                                         <tr>
                                             <th scope="col">Name</th>
                                             <th scope="col">Department</th>
                                             <th scope="col">Email</th>
-                                            <th scope="col">Delete</th>
+                                            <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -98,19 +90,17 @@
                                             <td> <%= staff.email %> </td>
                                             <td>
                                                 <form action="/admin/users/delete/<%=staff._id %>" method="post">
-                                                    <button type="submit" class="btn btn-sm btn-danger"> <i
-                                                            class="far fa-trash-alt"></i></button>
+                                                    <button type="submit" id="delete-btn" class="btn btn-sm btn-danger"> <i class="far fa-trash-alt"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
                                         <% }); %>
                                     </tbody>
-                                </table>
-                            </div>
-                        </div>
+                                </table>   
                     </div>
 
                 </div>
+            </div>
             </div>
 
         </div>

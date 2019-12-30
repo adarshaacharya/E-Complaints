@@ -12,6 +12,7 @@
   "dependencies": {
     "@hapi/joi": "^16.1.8",
     "bcryptjs": "^2.4.3",
+    "connect-mongo": "^3.2.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "express-flash": "0.0.2",

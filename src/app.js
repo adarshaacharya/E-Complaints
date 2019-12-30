@@ -10,7 +10,7 @@ const mongoose = require('mongoose')
 const session = require("express-session")
 const flash = require("connect-flash")
 const passport = require('passport')
-
+const MongoStore = require('connect-mongo')(session)
 
 const app = express()
 // prevent stack traces on production
@@ -46,7 +46,9 @@ mongoose.connect(process.env.DATABASE_URL, {
 app.use(session({
     secret: 'secretKey',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: {maxAge: 1000 * 60 * 60 * 24, httpOnly: true},
+    store : new MongoStore({mongooseConnection: mongoose.connection})
 }));
 
 // Express flash message middleware
