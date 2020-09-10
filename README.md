@@ -5,7 +5,7 @@
     <img alt="License: GNU General Public License v3.0" src="https://img.shields.io/badge/License-GNU General Public License v3.0-yellow.svg" />
   </a>
   <a href="https://twitter.com/UltimateAdarshx" target="_blank">
-    <img alt="Twitter: UltimateAdarshx" src="https://img.shields.io/twitter/follow/UltimateAdarshx.svg?style=social" />
+    <img alt="Twitter: aadarsha" src="https://img.shields.io/twitter/follow/aadarshatweets?style=social" />
   </a>
 </p>
 
