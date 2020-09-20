@@ -14,7 +14,7 @@
   "license": "ISC",
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint:fix",
+  
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
