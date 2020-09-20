@@ -50,8 +50,8 @@ app.use(
     saveUninitialized: true,
     cookie: { maxAge: 1000 * 60 * 60 * 24, httpOnly: true },
     store: new MongoStore({ mongooseConnection: mongoose.connection })
-  })
-)
+  });
+);
 
 // Express flash message middleware
 app.use(flash())
