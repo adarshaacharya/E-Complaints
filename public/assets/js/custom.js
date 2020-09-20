@@ -1,6 +1,6 @@
 console.log('Client side JS loaded... ')
 
 /* Preloader */
-$(window).on('load',function(){
-    $('.loader').fadeOut('slow');
-});
+$(window).on('load', () => {
+  $('.loader').fadeOut('slow')
+})

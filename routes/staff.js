@@ -1,19 +1,35 @@
-const express = require("express");
-const router = express.Router();
-const { checkAuthenticated, checkNotAuthenticated} = require("../middleware/auth");
+const express = require('express')
+
+const router = express.Router()
+const {
+  checkAuthenticated,
+  checkNotAuthenticated
+} = require('../middleware/auth')
 const StaffController = require('../controllers/StaffController')
 
-const {isStaff} = require('../middleware/role')
+const { isStaff } = require('../middleware/role')
 
 // view main staff dashboard
-router.get("/dashboard", checkAuthenticated, isStaff, StaffController.staffDashboard);
+router.get(
+  '/dashboard',
+  checkAuthenticated,
+  isStaff,
+  StaffController.staffDashboard
+)
 
 // view staff complaints
-router.get('/complaints', checkAuthenticated, isStaff, StaffController.viewComplaints)
+router.get(
+  '/complaints',
+  checkAuthenticated,
+  isStaff,
+  StaffController.viewComplaints
+)
 
 // reply to complaint by staff
-router.post('/complaints/feedback', checkAuthenticated, StaffController.complaintFeedback)
+router.post(
+  '/complaints/feedback',
+  checkAuthenticated,
+  StaffController.complaintFeedback
+)
 
-
-
-module.exports = router;
+module.exports = router

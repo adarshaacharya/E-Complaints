@@ -1,5 +1,3 @@
-const _ = require('lodash')
-const mongoose = require('mongoose')
 
 const { Complaint } = require('../models/complaint')
 
@@ -9,15 +7,15 @@ const { Complaint } = require('../models/complaint')
  * @type RequestHandler
  */
 exports.viewFeedbackPage = async (req, res) => {
-    try {
-        const complaint = await Complaint.find()
+  try {
+    const complaint = await Complaint.find()
 
-        res.render('feedback/view.ejs', {
-            complaint : complaint
-        })
-    }   catch(err) {
-        console.log(err)
-    }
+    res.render('feedback/view.ejs', {
+      complaint
+    })
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 /**
@@ -25,15 +23,15 @@ exports.viewFeedbackPage = async (req, res) => {
  * @description POST req to ceheck feedback by user
  * @type RequestHandler
  */
-exports.checkFeedback = async(req, res) => {
-    try {
-        const complaint = await Complaint.findById(req.body.complaintId)
-        res.render('feedback/view.ejs', {
-            complaint : complaint
-        });
-    }   catch(err) {
-        res.render('feedback/view.ejs', {
-            errors : err.messsage
-        })
-    }
+exports.checkFeedback = async (req, res) => {
+  try {
+    const complaint = await Complaint.findById(req.body.complaintId)
+    res.render('feedback/view.ejs', {
+      complaint
+    })
+  } catch (err) {
+    res.render('feedback/view.ejs', {
+      errors: err.messsage
+    })
+  }
 }

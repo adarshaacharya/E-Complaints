@@ -5,12 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js",
+    "format": "prettier --write \"**/*.{js,json,md}\"",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --fix --ext .js"
   },
   "author": "Aadarsha",
   "license": "ISC",
   "husky": {
     "hooks": {
+      "pre-commit": "npm run lint:fix",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
@@ -18,7 +22,9 @@
     "@hapi/joi": "^16.1.8",
     "bcryptjs": "^2.4.3",
     "compression": "^1.7.4",
+    "connect-flash": "^0.1.1",
     "connect-mongo": "^3.2.0",
+    "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "express-flash": "0.0.2",
@@ -28,12 +34,31 @@
     "moment": "^2.24.0",
     "mongoose": "^5.7.13",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "snazzy": "^8.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "commitlint": "^11.0.0",
-    "dotenv": "^8.2.0"
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.3.0",
+    "prettier": "^2.1.2",
+    "standard": "^14.3.4"
+  },
+  "standard": {
+    "ignore": [
+      "build/",
+      "public/",
+      "node_modules/",
+      "dist/"
+    ]
   }
 }

@@ -1,5 +1,4 @@
-const _ = require('lodash')
-const {Complaint} = require('../models/complaint')
+const { Complaint } = require('../models/complaint')
 
 /**
  * @route GET /staff/dashboard
@@ -7,17 +6,16 @@ const {Complaint} = require('../models/complaint')
  * @type RequestHandler
  */
 exports.staffDashboard = async (req, res) => {
-    try {
-      const complaints = await Complaint.find({ forwardTo : req.user._id});
-      res.render('staff/dashboard.ejs',{
-        staff : req.user,
-        complaints : complaints
-      });
-    } catch (err) {
-      console.log(err);
-    }
+  try {
+    const complaints = await Complaint.find({ forwardTo: req.user._id })
+    res.render('staff/dashboard.ejs', {
+      staff: req.user,
+      complaints
+    })
+  } catch (err) {
+    console.log(err)
+  }
 }
-
 
 /**
  * @route GET /staff/complaints
@@ -25,18 +23,18 @@ exports.staffDashboard = async (req, res) => {
  * @type RequestHandler
  */
 exports.viewComplaints = async (req, res) => {
-    try {
-      const complaints = await Complaint.find({ forwardTo : req.user._id})
-  
-      if (req.session.role === "staff") {
-        return res.render("staff/complaints.ejs", {
-          staff : req.user,
-          complaints : complaints
-        });
-      }
-    } catch(err) {
-      console.log(err)
+  try {
+    const complaints = await Complaint.find({ forwardTo: req.user._id })
+
+    if (req.session.role === 'staff') {
+      return res.render('staff/complaints.ejs', {
+        staff: req.user,
+        complaints
+      })
     }
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 /**
@@ -44,16 +42,16 @@ exports.viewComplaints = async (req, res) => {
  * @description Post feedback to complaints by Staff
  * @type RequestHandler
  */
-exports.complaintFeedback = async(req, res) => {
-    try {
-        await Complaint.updateOne(
-          {_id : req.body.complaintId},
-          {$set : { feedback : req.body.feedback, status : 'done' }}
-        );
-  
-        await req.flash("success_msg", "Complaint replied successfully");
-        res.redirect('/staff/dashboard')
-    } catch(err) {
-      console.log(err)
-    }
+exports.complaintFeedback = async (req, res) => {
+  try {
+    await Complaint.updateOne(
+      { _id: req.body.complaintId },
+      { $set: { feedback: req.body.feedback, status: 'done' } }
+    )
+
+    await req.flash('success_msg', 'Complaint replied successfully')
+    res.redirect('/staff/dashboard')
+  } catch (err) {
+    console.log(err)
+  }
 }

@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const Joi = require("@hapi/joi");
+const mongoose = require('mongoose')
+const Joi = require('@hapi/joi')
 const moment = require('moment')
 
 const complaintSchema = new mongoose.Schema({
@@ -19,25 +19,25 @@ const complaintSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    default: "pending"
+    default: 'pending'
   },
   forwardTo: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId
   },
   feedback: {
     type: String,
     minlength: 3,
     maxlength: 5000
   },
-  date : {
-    type : String,
-    default :  moment().format('MMMM Do YYYY, h:mm:ss a')
+  date: {
+    type: String,
+    default: moment().format('MMMM Do YYYY, h:mm:ss a')
   }
-});
+})
 
-const Complaint = mongoose.model("Complaint", complaintSchema);
+const Complaint = mongoose.model('Complaint', complaintSchema)
 
-function validateComplaint(complaint) {
+function validateComplaint (complaint) {
   const schema = Joi.object({
     citizenship: Joi.string().required(),
 
@@ -45,12 +45,11 @@ function validateComplaint(complaint) {
 
     description: Joi.string().min(10).max(10000).required(),
 
-    feedback : Joi.string(),
-
-  });
+    feedback: Joi.string()
+  })
 
   return schema.validate(complaint)
 }
 
-module.exports.Complaint = Complaint;
-module.exports.validateComplaint = validateComplaint;
+module.exports.Complaint = Complaint
+module.exports.validateComplaint = validateComplaint

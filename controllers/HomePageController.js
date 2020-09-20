@@ -1,17 +1,15 @@
 const { Complaint } = require('../models/complaint')
 
-exports.homePage = async(req, res) => {
-    try {
-        const complaint = await Complaint.find()
-        res.render('index.ejs', {
-            complaint : complaint
-        })
-    }   catch(err) {
-        console.log(err)
-    }
+exports.homePage = async (req, res) => {
+  try {
+    const complaint = await Complaint.find()
+    res.render('index.ejs', {
+      complaint
+    })
+  } catch (err) {
+    console.log(err)
+  }
 }
-
-
 
 /**
  * @route GET /dashboard
@@ -19,12 +17,11 @@ exports.homePage = async(req, res) => {
  * @type RequestHandler
  */
 exports.filterDashboard = async (req, res) => {
-    try {
-        if(req.user.role === 'admin')  return res.redirect("admin/dashboard");
-        
-        if(req.user.role === 'staff') return res.redirect("staff/dashboard");
-        
-      } catch (err) {
-        console.log(err);
-      } 
+  try {
+    if (req.user.role === 'admin') return res.redirect('admin/dashboard')
+
+    if (req.user.role === 'staff') return res.redirect('staff/dashboard')
+  } catch (err) {
+    console.log(err)
+  }
 }
