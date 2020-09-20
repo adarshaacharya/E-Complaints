@@ -10,6 +10,7 @@ const mongoose = require('mongoose')
 const session = require("express-session")
 const flash = require("connect-flash")
 const passport = require('passport')
+const compression = require('compression');
 const MongoStore = require('connect-mongo')(session)
 
 const app = express()
@@ -20,6 +21,7 @@ app.set("env", process.env.NODE_ENV);
 // Middleware to Handle Post request
 app.use(express.json());
 app.use(express.urlencoded({ extended : true, limit : '50mb'}));
+app.use(compression());
 
 
 // Define paths for views and public dir
