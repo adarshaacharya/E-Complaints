@@ -9,7 +9,7 @@
   </a>
 </p>
 
-> A complaint management system to send the compaints to different departments by user. The complaints can be forwaded by admin as per type of complaints and will be responded by respective staff.
+ A complaint management system to send the compaints to different departments by user. The complaints can be forwaded by admin as per type of complaints and will be responded by respective staff.
 
 ### 🏠 [Homepage](src/app.js)
 
