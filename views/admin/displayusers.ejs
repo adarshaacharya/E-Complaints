@@ -1,4 +1,5 @@
 <%- include('../partials/_header.ejs') %>
+
 <%- include('../partials/_github-corner.ejs') %>
 <%- include('../partials/_navbar.ejs') %>
 
@@ -32,76 +33,77 @@
             </li>
         </ul>
 
-    <%- include('../partials/_messages.ejs') %>
+        <%- include('../partials/_messages.ejs') %>
 
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="users" role="tabpanel" aria-labelledby="users-tab">
-             <div class="container">
-                <div class="row">
+                <div class="container">
+                    <div class="row">
 
-                    <!-- Display Admins-->
-                    <div class="col-md-6 mt-5 ">
-                        Admins <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                        <!-- Display Admins-->
+                        <div class="col-md-6 mt-5 ">
+                            Admins <i class="fas fa-shield-alt" aria-hidden="true"></i>
 
-                                <table class="table">
-                                    <thead class="thead bg-light text-dark">
-                                        <tr>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <% const admins = users.filter((user) => user.role === 'admin') %>
-                                            <% admins.forEach((admin) => { %>
-                                            <td> <%= admin.name %> </td>
-                                            <td> <%= admin.email %> </td>
-                                            <td>
-                                                <form action="/admin/users/delete/<%=admin._id %>" method="post">
-                                                    <button type="submit" id="delete-btn" class="btn btn-sm btn-danger"> <i
-                                                      class="far fa-trash-alt"></i></button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <% }) %>
-                                    </tbody>
-                                </table>
+                            <table class="table">
+                                <thead class="thead bg-light text-dark">
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <% const admins = users.filter((user) => user.role === 'admin') %>
+                                        <% admins.forEach((admin) => { %>
+                                        <td> <%= admin.name %> </td>
+                                        <td> <%= admin.email %> </td>
+                                        <td>
+                                            <form action="/admin/users/delete/<%=admin._id %>" method="post">
+                                                <button type="submit" id="delete-btn" class="btn btn-sm btn-danger"> <i
+                                                        class="far fa-trash-alt"></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        <!--Display staffs-->
+                        <div class="col-md-6 mt-5">
+                            Respondent Staffs <i class="fas fa-cannabis"></i>
+                            <table class="table">
+                                <thead class="thead bg-light text-dark">
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Department</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <% const staffs = users.filter((user) => user.role === 'staff') %>
+                                        <% staffs.forEach((staff) => { %>
+                                        <th scope="row"> <%= staff.name %></th>
+                                        <td> <%= staff.department %> </td>
+                                        <td> <%= staff.email %> </td>
+                                        <td>
+                                            <form action="/admin/users/delete/<%=staff._id %>" method="post">
+                                                <button type="submit" id="delete-btn" class="btn btn-sm btn-danger"> <i
+                                                        class="far fa-trash-alt"></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+
                     </div>
-
-
-                    <!--Display staffs-->
-                    <div class="col-md-6 mt-5">
-                        Respondent Staffs <i class="fas fa-cannabis"></i>
-                                <table class="table">
-                                    <thead class="thead bg-light text-dark">
-                                        <tr>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Department</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <% const staffs = users.filter((user) => user.role === 'staff') %>
-                                            <% staffs.forEach((staff) => { %>
-                                            <th scope="row"> <%= staff.name %></th>
-                                            <td> <%= staff.department %> </td>
-                                            <td> <%= staff.email %> </td>
-                                            <td>
-                                                <form action="/admin/users/delete/<%=staff._id %>" method="post">
-                                                    <button type="submit" id="delete-btn" class="btn btn-sm btn-danger"> <i class="far fa-trash-alt"></i></button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <% }); %>
-                                    </tbody>
-                                </table>   
-                    </div>
-
                 </div>
-            </div>
             </div>
 
         </div>
@@ -109,7 +111,74 @@
 </section>
 
 
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-box clearfix">
+                <div class="table-responsive">
+                    <table class="table user-list">
+                        <thead>
+                            <tr>
+                                <th><span>Name</span></th>
+                                <th><span>Department</span></th>
+                                <th class="text-center"><span>Status</span></th>
+                                <th><span>Email</span></th>
+                                <th><span>Actions</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
+
+                            <tr>
+
+                                <% users.forEach((user) => { %>
+                                <td>
+                                    <img src="/assets/img/avatar.png" alt="">
+                                    <a href="#" class="user-link"> <%= user.name %></a>
+                                    <span class="user-subhead"><%=user.role%></span>
+                                </td>
+                                <td> <%= user.department %> </td>
+                                <td class="text-center">
+                                    <span class="label label-success"><%=user.role%></span>
+                                </td>
+                                <td>
+                                    <a href="#"><%= user.email %></a>
+                                </td>
+                                <td style="width: 20%;">
+                                    <a href="#" class="table-link">
+                                        <span class="fa-stack">
+                                            <i class="fa fa-square fa-stack-2x"></i>
+                                            <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                    <a href="#" class="table-link">
+                                        <span class="fa-stack">
+                                            <i class="fa fa-square fa-stack-2x"></i>
+                                            <i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                    <a href="#" class="table-link danger">
+                                        <span class="fa-stack">
+                                            <form action="/admin/users/delete/<%=user._id %>" method="post">
+                                                <button type="submit" id="delete-btn" class="">
+                                                    <i class="fa fa-square fa-stack-2x"></i>
+                                                    <i class="fas fa-trash-alt fa-stack-1x fa-inverse"></i>
+                                                </button>
+                                            </form>
+
+                                        </span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <%- include('../partials/_footer.ejs')%>

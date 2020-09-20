@@ -9,6 +9,11 @@
   },
   "author": "Aadarsha",
   "license": "ISC",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "dependencies": {
     "@hapi/joi": "^16.1.8",
     "bcryptjs": "^2.4.3",
@@ -25,6 +30,9 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "commitlint": "^11.0.0",
     "dotenv": "^8.2.0"
   }
 }
