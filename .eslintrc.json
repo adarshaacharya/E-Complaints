@@ -12,5 +12,14 @@
     },
     "rules": {
         "no-unused-vars": "error"
-    }
+    },
+    "ignorePatterns": [
+        "*.spec.js",
+        "*.test.js",
+        "*.d.ts",
+        "dist",
+        "client",
+        "build",
+        "public"
+    ]
 }
