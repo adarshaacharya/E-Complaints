@@ -16,11 +16,7 @@ router.get(
 )
 
 // register new admin / staff
-router.post(
-  '/users/register',
-  checkAuthenticated,
-  AdminController.registerUser
-)
+router.post('/users/register', checkAuthenticated, AdminController.registerUser)
 
 // view complaints from admin dashboard
 router.get(
@@ -46,10 +42,6 @@ router.get(
 )
 
 // delete admin /officer
-router.post(
-  '/users/delete/:id',
-  checkAuthenticated,
-  AdminController.deleteUser
-)
+router.post('/users/delete/:id', checkAuthenticated, AdminController.deleteUser)
 
 module.exports = router

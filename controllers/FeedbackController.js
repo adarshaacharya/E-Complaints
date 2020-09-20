@@ -1,4 +1,3 @@
-
 const { Complaint } = require('../models/complaint')
 
 /**

@@ -1,6 +1,6 @@
 // check if user is logged in if they want to access the route
 
-function checkAuthenticated (req, res, next) {
+function checkAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     if (req.user.role === 'admin') {
       req.session.role = 'admin'
@@ -18,7 +18,7 @@ function checkAuthenticated (req, res, next) {
 }
 
 // ensure no user logged in if they want to access the route
-function checkNotAuthenticated (req, res, next) {
+function checkNotAuthenticated(req, res, next) {
   // if authenticated
   if (req.isAuthenticated()) {
     if (req.user.role === 'admin') {

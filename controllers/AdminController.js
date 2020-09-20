@@ -71,7 +71,9 @@ exports.registerUser = async (req, res) => {
  * @type RequestHandler
  */
 exports.adminComplaints = async (req, res) => {
-  if (req.session.role === 'staff') { return res.render('staff/dashboard.ejs', { staff: req.user }) }
+  if (req.session.role === 'staff') {
+    return res.render('staff/dashboard.ejs', { staff: req.user })
+  }
   try {
     const complaints = await Complaint.find()
     const users = await User.find()
@@ -112,7 +114,9 @@ exports.forwardComplaints = async (req, res) => {
  * @type RequestHandler
  */
 exports.displayUsers = async (req, res) => {
-  if (req.session.role === 'staff') { return res.render('staff/dashboard.ejs', { staff: req.user }) }
+  if (req.session.role === 'staff') {
+    return res.render('staff/dashboard.ejs', { staff: req.user })
+  }
   try {
     const users = await User.find()
     res.render('admin/displayusers.ejs', {

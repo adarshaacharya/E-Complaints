@@ -37,7 +37,7 @@ const complaintSchema = new mongoose.Schema({
 
 const Complaint = mongoose.model('Complaint', complaintSchema)
 
-function validateComplaint (complaint) {
+function validateComplaint(complaint) {
   const schema = Joi.object({
     citizenship: Joi.string().required(),
 
