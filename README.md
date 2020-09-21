@@ -1,15 +1,19 @@
 <br />
 
 <p align="center">
+  <a herf="http://e-complaints.herokuapp.com">
 <img src="https://raw.githubusercontent.com/adarshaacharya/E-Complaints/master/docs/github_cover.png" alt="github_cover" />
+ </a>
 </p>
-<h2 align="center">E-Complaints 💬</h1>
+<h2 align="center">
+<a herf="http://e-complaints.herokuapp.com">
+ E-Complaints 💬
+</a>
+ </h1>
 
 
 <p align="center">
- <a herf="http://e-complaints.herokuapp.com">
  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
- </a>
   <a href="https://github.com/adarshaacharya/E-Complaints/blob/master/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/github/license/adarshaacharya/E-Complaints" />
   </a>
