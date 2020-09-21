@@ -1,17 +1,19 @@
 <br />
 
+
 <p align="center">
-  <a herf="http://e-complaints.herokuapp.com">
+<a href="https://e-complaints.herokuapp.com/">
 <img src="https://raw.githubusercontent.com/adarshaacharya/E-Complaints/master/docs/github_cover.png" alt="github_cover" />
- </a>
+
+</a>
 </p>
 
-<a herf="http://e-complaints.herokuapp.com" target="_blank">
+<p align="center">
+<a href="https://e-complaints.herokuapp.com/">
 <h2 align="center">
  E-Complaints 💬
-</h2>
-</a>
-
+</h2></a>
+</p>
 
 
 <p align="center">
