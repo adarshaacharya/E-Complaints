@@ -1,19 +1,29 @@
-<h1 align="center">Welcome to E-Complaints 👋</h1>
-<p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+<br />
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/adarshaacharya/E-Complaints/master/docs/github_cover.png" alt="github_cover" />
+</p>
+<h2 align="center">E-Complaints 💬</h1>
+
+
+<p align="center">
+ <a herf="http://e-complaints.herokuapp.com">
+ <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+ </a>
   <a href="https://github.com/adarshaacharya/E-Complaints/blob/master/LICENSE" target="_blank">
-    <img alt="License: GNU General Public License v3.0" src="https://img.shields.io/badge/License-GNU General Public License v3.0-yellow.svg" />
+    <img alt="License: MIT" src="https://img.shields.io/github/license/adarshaacharya/E-Complaints" />
   </a>
   <a href="https://twitter.com/UltimateAdarshx" target="_blank">
     <img alt="Twitter: aadarsha" src="https://img.shields.io/twitter/follow/aadarshatweets?style=social" />
   </a>
+    <a href="https://standardjs.com"><img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide"></a>
+  </p>
+  
+ <p center>
+A complaint management system to send the compaints to different departments by user. The complaints can be forwaded by admin as per nature of complaints and will be responded by respective staff.
 </p>
 
-A complaint management system to send the compaints to different departments by user. The complaints can be forwaded by admin as per type of complaints and will be responded by respective staff.
 
-### 🏠 [Homepage](src/app.js)
-
-### ✨ [Demo](http://e-complaints.herokuapp.com)
 
 ## Install
 
