@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs')
 // Load User model
 const { User } = require('../models/user')
 
-function initialize (passport) {
+function initialize(passport) {
   const authenticateUser = async (email, password, done) => {
     // Match user
     const user = await User.findOne({ email })
