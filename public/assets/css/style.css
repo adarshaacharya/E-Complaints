@@ -4,6 +4,9 @@ html {
     padding: 0px;
 }
 
+body {
+    font-family: 'Hind', sans-serif;
+}
 
 #logout-btn {
     padding: 12px;
