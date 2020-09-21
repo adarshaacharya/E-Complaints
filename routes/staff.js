@@ -1,10 +1,7 @@
 const express = require('express')
 
 const router = express.Router()
-const {
-  checkAuthenticated,
-  checkNotAuthenticated
-} = require('../middleware/auth')
+const { checkAuthenticated } = require('../middleware/auth')
 const StaffController = require('../controllers/StaffController')
 
 const { isStaff } = require('../middleware/role')
