@@ -1,6 +1,5 @@
 <br />
 
-
 <p align="center">
 <a href="https://e-complaints.herokuapp.com/">
 <img src="https://raw.githubusercontent.com/adarshaacharya/E-Complaints/master/docs/github_cover.png" alt="github_cover" />
@@ -14,7 +13,6 @@
  E-Complaints 💬
 </h2></a>
 </p>
-
 
 <p align="center">
  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
@@ -31,14 +29,12 @@
 A complaint management system to send the compaints to different departments by user. The complaints can be forwaded by admin as per nature of complaints and will be responded by respective staff.
 </p>
 
-
-
-
 ## 🛠 Installation & Set Up
 
 Start developing locally.
 
 ### Step 1: Clone the repo
+
 Fork the repository. then clone the repo locally by doing -
 
 ```sh
@@ -46,6 +42,7 @@ https://github.com/adarshaacharya/E-Complaints.git
 ```
 
 ### Step 2: Install Dependencies
+
 cd into the directory
 
 ```sh
@@ -53,25 +50,27 @@ cd E-Complaints
 ```
 
 In the root folder do npm install.
+
 ```sh
 npm install
 ```
 
 ### Step 3: Setup .env
+
 To run the server you will also need to provide the `.env` variables
 
 - create a new file .env in the root
 - open [.env.example](./.env.example)
-- copy the database url and paste it to the .env 
-_(make sure that you've installed MongoDB)_
+- copy the database url and paste it to the .env
+  _(make sure that you've installed MongoDB)_
 
 #### And you are good to go
+
 ```sh
 npm run dev
 
 # Server runs on http://localhost:5000
 ```
-
 
 ## 🤝 Contributing
 
@@ -90,10 +89,10 @@ Give a ⭐️ if you like the project!
 
 ## 👤 Author
 
--   Website: <https://adarshaacharya.com.np/>
--   Twitter: [@adarshatweets](https://twitter.com/adarshatweets)
--   Github: [@adarshaacharya](https://github.com/adarshaacharya)
--   LinkedIn: [@adarshaacharya](https://linkedin.com/in/adarshaacharya)
+- Website: <https://adarshaacharya.com.np/>
+- Twitter: [@adarshatweets](https://twitter.com/adarshatweets)
+- Github: [@adarshaacharya](https://github.com/adarshaacharya)
+- LinkedIn: [@adarshaacharya](https://linkedin.com/in/adarshaacharya)
 
 ## 📝 License
 
