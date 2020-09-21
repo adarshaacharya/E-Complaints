@@ -98,4 +98,4 @@ Give a ⭐️ if you like the project!
 ## 📝 License
 
 Copyright © 2020 [Aadarsha Acharya](https://github.com/adarshaacharya).<br />
-This project is [MIT](https://github.com/adarshaacharya/CodeTreats/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/adarshaacharya/E-Complaints/blob/master/LICENSE) licensed.
