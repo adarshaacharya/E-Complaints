@@ -26,10 +26,10 @@
   </p>
   
  <p align="center">
-A complaint management system to send the compaints to different departments by user. The complaints can be forwaded by admin as per nature of complaints and will be responded by respective staff.
+A complaint management system to send the compaints to different departments by user. The complaints can be forwaded by admin as per nature of complaints and will be responded by the respective staff.
 </p>
 
-## 🛠 Installation & Set Up
+## 🛠 Installation & Set Up 
 
 Start developing locally.
 
